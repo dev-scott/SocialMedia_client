@@ -1,40 +1,34 @@
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import Form from "./Form";
-import loginImg from "assets/boy.png";
-import FlexBetween from "components/FlexBetween";
 
 const LoginPage = () => {
   const theme = useTheme();
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   return (
-    <Box
-      p="0rem 6%"
-      width="100%"
-      sx={{
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItem: "center"
-      }}
-    >
+    <Box>
       <Box
-        sx={{
-          width: "50%",
-          height: "100%",
-          // backgroundColor: "blue"
-        }}
+        width="100%"
+        backgroundColor={theme.palette.background.alt}
+        p="1rem 6%"
+        textAlign="center"
       >
+        <Typography fontWeight="bold" fontSize="32px" color="primary">
+          Sociopedia
+        </Typography>
+      </Box>
+
+      <Box
+        width={isNonMobileScreens ? "50%" : "93%"}
+        p="2rem"
+        m="2rem auto"
+        borderRadius="1.5rem"
+        backgroundColor={theme.palette.background.alt}
+      >
+        <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
+          Welcome to Socipedia, the Social Media for Sociopaths!
+        </Typography>
         <Form />
       </Box>
-      <FlexBetween
-        sx={{ width: "50%", height: "100%" }}
-      >
-        <img
-          src={loginImg}
-          style={{ width: "60%", heigh: "70%", objectFit: "cover" }}
-          alt=""
-        />
-      </FlexBetween>
     </Box>
   );
 };
